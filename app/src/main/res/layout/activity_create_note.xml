@@ -11,8 +11,7 @@
         android:id="@+id/editTextTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter note content"
-        android:inputType="textMultiLine"
+        android:hint="Enter note title"
         android:minLines="1"
         android:gravity="start|top" />
 

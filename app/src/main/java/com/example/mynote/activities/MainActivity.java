@@ -10,6 +10,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mynote.Models.Note;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -54,10 +55,22 @@ public class MainActivity extends AppCompatActivity {
                                         notes.add(note);
                                         break;
                                     case MODIFIED:
-                                        // Handle modified note if needed
+                                        Note modifiedNote = dc.getDocument().toObject(Note.class);
+                                        for (int i = 0; i < notes.size(); i++) {
+                                            if (notes.get(i).getId().equals(modifiedNote.getId())) {
+                                                notes.set(i, modifiedNote);
+                                                break;
+                                            }
+                                        }
                                         break;
                                     case REMOVED:
-                                        // Handle removed note if needed
+                                        Note removedNote = dc.getDocument().toObject(Note.class);
+                                        for (int i = 0; i < notes.size(); i++) {
+                                            if (notes.get(i).getId().equals(removedNote.getId())) {
+                                                notes.remove(i);
+                                                break;
+                                            }
+                                        }
                                         break;
                                 }
                             }
