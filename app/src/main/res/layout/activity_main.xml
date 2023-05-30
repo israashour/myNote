@@ -1,68 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".activities.MainActivity">
 
-    <ScrollView
-        android:id="@+id/sv"
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Note"
-        android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"/>
-
-    <EditText
-        android:id="@+id/noteTitle"
-        android:layout_width="384dp"
-        android:layout_height="32dp"
-        android:text="Title"
-        android:padding="5dp"
-        android:layout_gravity="center"
-        android:layout_margin="5dp"/>
-
-    <EditText
-        android:id="@+id/noteContent"
-        android:layout_width="384dp"
-        android:layout_height="583dp"
-        android:text="Write here"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:background="#40F4F2F2"/>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
 
     <Button
-        android:id="@+id/save"
-        android:layout_width="match_parent"
+        android:id="@+id/addNoteButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Save"
-        android:onClick="saveToFirebase"
-        android:layout_gravity="center"
-        android:backgroundTint="#519E8B"
-        />
-    </RelativeLayout>
-        </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Add Note"
+        android:onClick="onAddNoteClick" />
 
-    </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>
